@@ -3,6 +3,19 @@ android {
   lintOptions {
     abortOnError false
   }
+  buildTypes {
+    debug {
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules-debug.pro'
+      minifyEnabled false
+      zipAlignEnabled true
+      jniDebuggable true
+    }
+    release {
+      minifyEnabled false
+      zipAlignEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
 }
 
 dependencies {
@@ -66,7 +79,7 @@ uploadArchives {
       pom.project {
         groupId = "me.mrtan.photopicker"
         artifactId = "PhotoPicker"
-        version = "0.10"
+        version = "0.10.1"
         packaging = "aar"
       }
     }
