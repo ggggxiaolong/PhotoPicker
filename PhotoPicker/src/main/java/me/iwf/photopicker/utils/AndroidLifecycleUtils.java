@@ -30,7 +30,7 @@ public class AndroidLifecycleUtils {
         return canLoadImage(activity);
     }
 
-    public static boolean canLoadImage(Activity activity) {
+    private static boolean canLoadImage(Activity activity) {
         if (activity == null) {
             return true;
         }
@@ -38,10 +38,6 @@ public class AndroidLifecycleUtils {
         boolean destroyed = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 &&
                 activity.isDestroyed();
 
-        if (destroyed || activity.isFinishing()) {
-            return false;
-        }
-
-        return true;
+        return !(destroyed || activity.isFinishing());
     }
 }

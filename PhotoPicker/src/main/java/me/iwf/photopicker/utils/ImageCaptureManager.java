@@ -16,8 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import me.iwf.photopicker.BuildConfig;
-
 /**
  * Created by donglua on 15/6/23.
  *

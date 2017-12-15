@@ -7,8 +7,8 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-import com.crashlytics.android.Crashlytics;
-import io.fabric.sdk.android.Fabric;
+//import com.crashlytics.android.Crashlytics;
+//import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 import java.util.List;
 import me.iwf.photopicker.PhotoPicker;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    Fabric.with(this, new Crashlytics());
+    //Fabric.with(this, new Crashlytics());
     setContentView(R.layout.activity_main);
 
     RecyclerView recyclerView = findViewById(R.id.recycler_view);

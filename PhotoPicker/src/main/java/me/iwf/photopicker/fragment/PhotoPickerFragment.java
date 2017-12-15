@@ -20,13 +20,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.iwf.photopicker.GlideApp;
 import me.iwf.photopicker.PhotoPickerActivity;
 import me.iwf.photopicker.R;
 import me.iwf.photopicker.adapter.PhotoGridAdapter;
@@ -91,8 +91,9 @@ public class PhotoPickerFragment extends Fragment {
 
     setRetainInstance(true);
 
-    mGlideRequestManager = Glide.with(this);
+    mGlideRequestManager = GlideApp.with(this);
 
+    assert  getArguments() != null;
     directories = new ArrayList<>();
     originalPhotos = getArguments().getStringArrayList(EXTRA_ORIGIN);
 
@@ -134,7 +135,7 @@ public class PhotoPickerFragment extends Fragment {
   }
 
 
-  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
+  @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
 
     final View rootView = inflater.inflate(R.layout.__picker_fragment_photo_picker, container, false);
@@ -232,7 +233,7 @@ public class PhotoPickerFragment extends Fragment {
     } catch (IOException e) {
       e.printStackTrace();
     } catch (ActivityNotFoundException e) {
-      // TODO No Activity Found to handle Intent
+      // fixme No Activity Found to handle Intent
       e.printStackTrace();
     }
   }
